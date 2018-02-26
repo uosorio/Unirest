@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <table id="tablavalor" class="">
+                               <thead>
+                                   <tr>
+                                     <th>Fecha</th>
+                                     <th>Valor UF</th>
+                                       </tr>
+                               </thead>
+                               <tbody>
+                              </tbody>
+                            </table>
+      
+{% endblock %}
+{% block javascripts %}
+ 
+    <script src="{{ asset('fosjsrouting/js/router.js') }}"></script>
+    
+    <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}">
+
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script>
+    <script>
+     $(document).ready(function() {
+         
+         
+         
+          var tabla = $('#tablavalor').DataTable({
+          
+                "dom": 'flitp',
+        
+                ajax:"{{ path('api_api2') }}",
+
+                process: true,
+
+                "columns": [
+
+                { data: "Fecha" },
+                { data: "Valor" }
+                ] ,
+
+                "initComplete": function(settings, json) {
+
+                    console.log(json);
+
+                }                        
+
+            });
+     }
+   );
+    </script>
+    
+{% endblock %}

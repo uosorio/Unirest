@@ -1,0 +1,10 @@
+api_index:
+    path:     /Api
+    defaults: { _controller: ApiBundle:Api:index }
+    
+api_api2:
+    path:     /Api/Api2
+    defaults: { _controller: ApiBundle:Api:Api2 }
+    
+
+    
